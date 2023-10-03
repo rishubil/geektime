@@ -1,0 +1,11 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="ConnOnIcon" filename="conn-on.png" />
+    <bitmap id="ConnOffIcon" filename="conn-off.png" />
+    <bitmap id="BattOnIcon" filename="batt-on.png" />
+    <bitmap id="BattOffIcon" filename="batt-off.png" />
+    <bitmap id="DndOnIcon" filename="dnd-on.png" />
+    <bitmap id="DndOffIcon" filename="dnd-off.png" />
+    <bitmap id="NotiOnIcon" filename="noti-on.png" />
+    <bitmap id="NotiOffIcon" filename="noti-off.png" />
+</drawables>

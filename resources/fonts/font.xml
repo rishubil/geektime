@@ -1,0 +1,16 @@
+<fonts>
+    <font id="NWGalmuri7" filename="NWGalmuri7/NWGalmuri7.fnt"
+        filter="0123456789%+-.,/°km(UTC)D " />
+    <font id="NWGalmuriMono7" filename="NWGalmuriMono7/NWGalmuriMono7.fnt"
+        filter="1234567890-: " />
+    <font id="NWGalmuriMono7Num" filename="NWGalmuriMono7/NWGalmuriMono7.fnt"
+        filter="1234567890" />
+    <font id="NWGalmuri9" filename="NWGalmuri9/NWGalmuri9.fnt" />
+    <font id="NWGalmuri11Bold" filename="NWGalmuri11Bold/NWGalmuri11Bold.fnt"
+        filter="0123456789.km" />
+    <font id="NWGalmuri11BoldNum" filename="NWGalmuri11Bold/NWGalmuri11Bold.fnt"
+        filter="0123456789" />
+    <font id="NWGalmuri11BoldX3" filename="NWGalmuri11BoldX3/NWGalmuri11BoldX3.fnt"
+        filter="0123456789:" />
+    <font id="NWFade" filename="NWFade/NWFade.fnt" />
+</fonts>

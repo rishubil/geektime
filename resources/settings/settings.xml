@@ -1,0 +1,32 @@
+<settings>
+    <setting propertyKey="@Properties.appVersion" title="@Strings.AppVersionTitle">
+        <settingConfig type="alphaNumeric" readonly="true" />
+    </setting>
+    <setting propertyKey="@Properties.stepGraphDurationSec"
+        title="@Strings.StepGraphDurationSecTitle"
+        prompt="@Strings.StepGraphDurationSecPrompt">
+        <settingConfig type="numeric" required="true" min="1" />
+    </setting>
+    <setting propertyKey="@Properties.stepGraphBarWidth"
+        title="@Strings.StepGraphBarWidthTitle">
+        <settingConfig type="numeric" required="true" min="1" />
+    </setting>
+    <setting propertyKey="@Properties.stepGraphBarGap"
+        title="@Strings.StepGraphBarGapTitle">
+        <settingConfig type="numeric" required="true" min="0" />
+    </setting>
+    <setting propertyKey="@Properties.breathGraphDurationSec"
+        title="@Strings.BreathGraphDurationSecTitle"
+        prompt="@Strings.BreathGraphDurationSecPrompt">
+        <settingConfig type="numeric" required="true" min="1" />
+    </setting>
+    <setting propertyKey="@Properties.breathGraphPointGap"
+        title="@Strings.BreathGraphPointGapTitle">
+        <settingConfig type="numeric" required="true" min="1" />
+    </setting>
+    <setting propertyKey="@Properties.oxygenGraphDurationSec"
+        title="@Strings.OxygenGraphDurationSecTitle"
+        prompt="@Strings.OxygenGraphDurationSecPrompt">
+        <settingConfig type="numeric" required="true" min="1" />
+    </setting>
+</settings>
