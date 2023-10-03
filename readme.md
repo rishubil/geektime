@@ -1,6 +1,6 @@
 # Geektime
 
-![Geektime watchface sample](./res/capture-eng.png)
+![Geektime watchface sample](./res/watch.png)
 
 Geektime is a watchface for the Garmin Instinct 2.
 
@@ -50,4 +50,4 @@ So I decided to create one myself.
 
 ## License
 
-MIT
+MIT, and the font is from [Galmuri](https://galmuri.quiple.dev/) which is under [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
