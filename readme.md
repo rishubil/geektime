@@ -4,6 +4,8 @@
 
 Geektime is a watchface for the Garmin Instinct 2.
 
+[Install from Connect IQ](https://apps.garmin.com/en-US/apps/187dcb27-5c5c-444b-afa2-ce1e569abdfb)
+
 ## Motivation
 
 I recently received the Garmin Instinct 2 as a gift, but couldn't find a watchface that I liked.  
