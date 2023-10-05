@@ -1,6 +1,6 @@
 info face="Galmuri11 Bold" size=-12 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=0 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
 common lineHeight=16 base=14 scaleW=128 scaleH=128 pages=1 packed=0 alphaChnl=0 redChnl=0 greenChnl=0 blueChnl=0
-page id=0 file="NWGalmuri11Bold_0.png"
+page id=0 file="Galmuri11Bold_0.png"
 chars count=96
 char id=32   x=8     y=36    width=3     height=1     xoffset=-1    yoffset=15    xadvance=5     page=0  chnl=15
 char id=33   x=124   y=24    width=2     height=11    xoffset=0     yoffset=3     xadvance=3     page=0  chnl=15

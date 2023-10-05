@@ -14,9 +14,9 @@ using Toybox.Weather as Weather;
 // TODO: Handle very long weather condition string - marquee?
 
 class GeektimeView extends WatchUi.WatchFace {
-  var nwGalmuri11BoldNum as Graphics.FontType? = null;
-  var nwGalmuriMono7Num as Graphics.FontType? = null;
-  var nwFade as Graphics.FontType? = null;
+  var fontGalmuri11BoldSec as Graphics.FontType? = null;
+  var fontGalmuri7Sec as Graphics.FontType? = null;
+  var fontFade as Graphics.FontType? = null;
 
   // BEGIN PROPERTIES
   var stepGraphDurationSec = Gregorian.SECONDS_PER_MINUTE * 15;
@@ -76,9 +76,9 @@ class GeektimeView extends WatchUi.WatchFace {
   function onLayout(dc as Graphics.Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
 
-    nwGalmuri11BoldNum = WatchUi.loadResource(Rez.Fonts.NWGalmuri11BoldNum);
-    nwGalmuriMono7Num = WatchUi.loadResource(Rez.Fonts.NWGalmuriMono7Num);
-    nwFade = WatchUi.loadResource(Rez.Fonts.NWFade);
+    fontGalmuri11BoldSec = WatchUi.loadResource(Rez.Fonts.Galmuri11BoldSec);
+    fontGalmuri7Sec = WatchUi.loadResource(Rez.Fonts.Galmuri7Sec);
+    fontFade = WatchUi.loadResource(Rez.Fonts.Fade);
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -166,15 +166,13 @@ class GeektimeView extends WatchUi.WatchFace {
       timeOffsetString
     );
 
-    var utcPreString = Lang.format("$1$-$2$-$3$ $4$:$5$:", [
+    var utcDateString = Lang.format("$1$-$2$-$3$", [
       nowUtcGregorian.year,
       nowUtcGregorian.month.format("%02d"),
       nowUtcGregorian.day.format("%02d"),
-      nowUtcGregorian.hour.format("%02d"),
-      nowUtcGregorian.min.format("%02d"),
     ]);
-    (View.findDrawableById("utcPreLabel") as WatchUi.Text).setText(
-      utcPreString
+    (View.findDrawableById("utcDateLabel") as WatchUi.Text).setText(
+      utcDateString
     );
 
     var nowTempString = "-";
@@ -330,7 +328,7 @@ class GeektimeView extends WatchUi.WatchFace {
 
     drawFadeChart(
       dc,
-      nwFade,
+      fontFade,
       minOxygen,
       oxygenSamples,
       OXYGEN_GRAPH_RIGHT,
@@ -341,9 +339,13 @@ class GeektimeView extends WatchUi.WatchFace {
 
     // BEGIN UPDATE SEC
     var secString = nowGregorian.sec.format("%02d");
-    var utcSecString = nowUtcGregorian.sec.format("%02d");
+    var utcTimeString = Lang.format("$1$:$2$:$3$", [
+      nowUtcGregorian.hour.format("%02d"),
+      nowUtcGregorian.min.format("%02d"),
+      nowUtcGregorian.sec.format("%02d"),
+    ]);
 
-    drawSec(dc, secString, utcSecString);
+    drawSec(dc, secString, utcTimeString);
     // END UPDATE SEC
   }
 
@@ -352,9 +354,13 @@ class GeektimeView extends WatchUi.WatchFace {
     var nowGregorian = Gregorian.info(now, Time.FORMAT_SHORT);
     var nowUtcGregorian = Gregorian.utcInfo(now, Time.FORMAT_SHORT);
     var secString = nowGregorian.sec.format("%02d");
-    var utcSecString = nowUtcGregorian.sec.format("%02d");
+    var utcTimeString = Lang.format("$1$:$2$:$3$", [
+      nowUtcGregorian.hour.format("%02d"),
+      nowUtcGregorian.min.format("%02d"),
+      nowUtcGregorian.sec.format("%02d"),
+    ]);
 
-    drawSec(dc, secString, utcSecString);
+    drawSec(dc, secString, utcTimeString);
   }
 
   // Called when this View is removed from the screen. Save the
@@ -615,9 +621,9 @@ class GeektimeView extends WatchUi.WatchFace {
   function drawSec(
     dc as Graphics.Dc,
     secString as Lang.String,
-    utcSecString as Lang.String
+    utcTimeString as Lang.String
   ) as Void {
-    if (nwGalmuri11BoldNum != null) {
+    if (fontGalmuri11BoldSec != null) {
       dc.setClip(SEC_X, SEC_Y, SEC_W, SEC_H);
       dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
       dc.clear();
@@ -625,22 +631,23 @@ class GeektimeView extends WatchUi.WatchFace {
       dc.drawText(
         SEC_X,
         SEC_Y,
-        nwGalmuri11BoldNum,
+        fontGalmuri11BoldSec,
         secString,
         Graphics.TEXT_JUSTIFY_LEFT
       );
       dc.clearClip();
     }
-    if (nwGalmuriMono7Num != null) {
+    if (fontGalmuri7Sec != null) {
       dc.setClip(UTC_SEC_X, UTC_SEC_Y, UTC_SEC_W, UTC_SEC_H);
       dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
       dc.clear();
       dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+      var textWidth = dc.getTextWidthInPixels(utcTimeString, fontGalmuri7Sec);
       dc.drawText(
-        UTC_SEC_X,
+        UTC_SEC_X + UTC_SEC_W - textWidth,
         UTC_SEC_Y,
-        nwGalmuriMono7Num,
-        utcSecString,
+        fontGalmuri7Sec,
+        utcTimeString,
         Graphics.TEXT_JUSTIFY_LEFT
       );
       dc.clearClip();
