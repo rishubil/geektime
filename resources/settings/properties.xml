@@ -1,5 +1,5 @@
 <properties>
-    <property id="appVersion" type="string">0.0.1</property>
+    <property id="appVersion" type="string">0.0.2</property>
     <property id="stepGraphDurationSec" type="number">900</property>
     <property id="stepGraphBarWidth" type="number">2</property>
     <property id="stepGraphBarGap" type="number">1</property>
