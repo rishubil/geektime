@@ -1,6 +1,6 @@
 # Geektime
 
-![Geektime watchface sample](./res/watch.png)
+![Geektime watchface sample](./res/watch-eng.png)
 
 Geektime is a watchface for the Garmin Instinct 2.
 
